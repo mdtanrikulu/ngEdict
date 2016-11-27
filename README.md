@@ -77,9 +77,9 @@ If you send <b>timer</b> property into the object, notification will dissapear a
 
 ####Screen
 
-![Info](/screen/3.jpg?raw=true "Info notification")
-![Warning](/screen/4.jpg?raw=true "Warning notification")
-![Error](/screen/4.jpg?raw=true "Error notification")
+![Info](/screen/3.png?raw=true "Info notification")
+![Warning](/screen/4.png?raw=true "Warning notification")
+![Error](/screen/5.png?raw=true "Error notification")
 
 ---
 
