@@ -1,0 +1,31 @@
+<div>
+    <a ui-sref="About">Create a notification then click me to see how notification working with states!</a>
+</div>
+<div>
+    <a href="http://localhost:8083/api">Docs here!</a>
+</div>
+<div class="row v-center">
+    <div class="column column-33 column-offset-33">
+        <h1><a><b>ng-edict</b></a></h1>
+        <form ng-submit="home.pushNotification()">
+            <fieldset>
+                <label for="typeField">Type of notification</label>
+                <select id="typeField" ng-model="home.nf.type" ng-options="item.name as item.name for item in home.typeList">
+                </select>
+                <label for="timerField">Timer</label>
+                <div class="range-slider">
+                    <input type="checkbox" ng-checked="home.time" ng-model="home.time" name="time"> Activate timer
+                    <br>
+                    <input class="range-slider__range" ng-model="home.nf.timer" type="range" value="0" min="0" max="10000" step="100" ng-disabled="!home.time">
+                    <span ng-if="home.time" class="range-slider__value" ng-bind="home.nf.timer/1000+'s'"></span>
+                    <span ng-if="!home.time" class="range-slider__value">-</span>
+                </div>
+                <label for="titleField">Header</label>
+                <input type="text" placeholder="The public will be announced!" id="titleField" ng-model="home.nf.title" maxlength="15" autofocus required>
+                <label for="messageField">Body</label>
+                <textarea placeholder="This is a notification!" id="messageField" ng-model="home.nf.message" maxlength="140" title="You can write your message up to 140 characters." required></textarea>
+                <input class="button-primary" type="submit" value="Push">
+            </fieldset>
+        </form>
+    </div>
+</div>

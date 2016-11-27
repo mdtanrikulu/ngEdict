@@ -1,0 +1,169 @@
+@import 'vars';
+@import 'typography';
+@import 'normalize';
+@import 'milligram';
+@import 'ngEdict';
+
+/*
+* FoundationIcons library has a bug with sassIncludePaths configuration, 
+* It wont let us to import file with 'woff' and 'ttf' font files.
+* That's why I added library via CDN.
+*/
+
+@import 'https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css';
+body {
+    font-family: Helvetica, sans-serif;
+    color: $font-color--dark;
+    background-color: $background--light;
+    padding: $half-space;
+}
+
+.v-center {
+    position: relative;
+    transform: translateY(20%);
+}
+
+.range-slider {
+    width: $range-width;
+}
+
+.range-slider__range {
+    -webkit-appearance: none;
+    width: calc(100% - (#{$range-label-width + 13px}));
+    height: $range-track-height;
+    border-radius: 5px;
+    background: $range-track-color;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    // Range Handle
+    &::-webkit-slider-thumb {
+        appearance: none;
+        width: $range-handle-size;
+        height: $range-handle-size;
+        border-radius: 50%;
+        background: $range-handle-color;
+        cursor: pointer;
+        transition: background .15s ease-in-out;
+        &:hover {
+            background: $range-handle-color-hover;
+        }
+    }
+    &:active::-webkit-slider-thumb {
+        background: $range-handle-color-hover;
+    }
+    &:disabled::-webkit-slider-thumb {
+        background: #ccc;
+    }
+    &::-moz-range-thumb {
+        width: $range-handle-size;
+        height: $range-handle-size;
+        border: 0;
+        border-radius: 50%;
+        background: $range-handle-color;
+        cursor: pointer;
+        transition: background .15s ease-in-out;
+        &:hover {
+            background: $range-handle-color-hover;
+        }
+    }
+    &:active::-moz-range-thumb {
+        background: $range-handle-color-hover;
+    }
+}
+
+// Range Label
+.range-slider__value {
+    display: inline-block;
+    position: relative;
+    width: $range-label-width;
+    color: $shade-0;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 3px;
+    background: $range-label-color;
+    padding: 5px 10px;
+    margin-left: 8px;
+    &:after {
+        position: absolute;
+        top: 8px;
+        left: -7px;
+        width: 0;
+        height: 0;
+        border-top: 7px solid transparent;
+        border-right: 7px solid $range-label-color;
+        border-bottom: 7px solid transparent;
+        content: '';
+    }
+}
+
+// Firefox Overrides
+::-moz-range-track {
+    background: $range-track-color;
+    border: 0;
+}
+
+input::-moz-focus-inner,
+input::-moz-focus-outer {
+    border: 0;
+}
+
+
+/* Larger than mobile screen */
+
+@media (max-width: 40.0rem) {
+    .row {
+        .column-33 {
+            width: 100% !important;
+            max-width: 100% !important;
+            width: 100%;
+        }
+        .column-offset-33 {
+            margin-left: 0 !important;
+        }
+        .column-offset-34 {
+            margin-left: 0 !important;
+        }
+    }
+}
+
+
+/* Larger than tablet screen */
+
+@media (min-width: 80.0rem) {}
+
+
+/*
+ *
+ *  About Page
+ *
+ */
+
+.centered {
+    text-align: center;
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    h5 {
+        margin: 0;
+    }
+    i {
+        line-height: 2em;
+        font-size: $font-size--lg;
+    }
+}
+
+.circular {
+    width: 100%;
+    height: 100%;
+    margin-bottom: $half-space;
+    border-radius: 150px;
+    -webkit-border-radius: 150px;
+    -moz-border-radius: 150px;
+    background: url(../images/mdt.profile.jpg) no-repeat 40% 50%;
+}

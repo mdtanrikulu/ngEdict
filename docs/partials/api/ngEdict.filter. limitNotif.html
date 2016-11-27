@@ -1,0 +1,69 @@
+<h1><code ng:non-bindable=""> limitNotif</code>
+<div><span class="hint">filter in module <code ng:non-bindable="">ngEdict</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="ngedict-filter-page ngedict-filter-limitnotif-page"><p>The filter is limiting notification repeater up to 5, it won&#39;t remove older notifications because of &#39;orderBy:$index:true&#39; filter will get copy of the original array and return it.</p>
+</div></div>
+<h2 id="usage">Usage</h2>
+<div class="usage"><h3 id="usage_in-html-template-binding">In HTML Template Binding</h3>
+<div class="in-html-template-binding"><code ng:non-bindable=""><span>{{</span> limitNotif_expression | limitNotif <span>}}</span></code>
+</div>
+<h3 id="usage_in-javascript">In JavaScript</h3>
+<div class="in-javascript"><code ng:non-bindable="">$filter('limitNotif')()</code>
+</div>
+</div>
+<h2 id="example">Example</h2>
+<div class="example"><div class="ngedict-filter-page ngedict-filter-limitnotif-page"><h4 id="example_source">Source</h4>
+<div source-edit="app" source-edit-deps="angular.js script.js" source-edit-html="index.html-1" source-edit-css="" source-edit-js="script.js-0" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
+<div class="tabbable"><div class="tab-pane" title="index.html">
+<pre class="prettyprint linenums" ng-set-text="index.html-1" ng-html-wrap-loaded="app angular.js script.js"></pre>
+<script type="text/ng-template" id="index.html-1">
+    
+    <div ng-controller="MainCtrl">
+        <ul class="notification-collection">
+            <li ng-repeat="notification in notifications | orderBy:$index:true | limitNotif">
+                <span ng-bind="notification"></span>
+            </li>
+            <li ng-if="notifications.length > 5">
+                <span>{{notifications.length - 4}} more</span>
+            </li>
+        </ul>
+    </div>
+</script>
+</div>
+<div class="tab-pane" title="script.js">
+<pre class="prettyprint linenums" ng-set-text="script.js-0"></pre>
+<script type="text/ng-template" id="script.js-0">
+        'use strict';
+        angular.module('app', []);
+
+        function MainCtrl($scope){
+            
+            $scope.notifications = [1,2,3,4,5,6,7,8,9,10];
+
+        }
+
+
+        angular.module('app').controller('MainCtrl', MainCtrl);
+
+
+        function limitNotif() {
+            return function(array) {
+                if (array.length > 5) {
+                        array.length = 4;
+                }
+
+                return array;
+            };
+        }
+
+        angular.module('app').filter('limitNotif', limitNotif);
+        
+    </script>
+</div>
+</div><h4 id="example_demo">Demo</h4>
+<div class="well doc-example-live animate-container" ng-embed-app="app" ng-set-html="index.html-1" ng-eval-javascript="script.js-0"></div>
+</div></div>
+</div>

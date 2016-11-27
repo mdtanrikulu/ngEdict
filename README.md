@@ -1,0 +1,52 @@
+ng-edict
+=====================================
+
+An AngularJS module to create notifications.
+
+---
+
+### Getting up and running
+
+This project uses the latest versions of the following libraries:
+
+- [AngularJS](http://angularjs.org/)
+- [SASS](http://sass-lang.com/)
+- [Gulp](http://gulpjs.com/)
+- [Browserify](http://browserify.org/)
+
+Along with many Gulp libraries (these can be seen in either `package.json`, or at the top of each task in `/gulp/tasks/`).
+
+---
+
+### Testing
+
+All of the tests can be run at once with the command `npm test`. However, the tests are into two main categories:
+
+##### End-to-End (e2e) Tests designed from start to end.
+
+In this project, three end-to-end test examples are provided:
+
+- `routes_spec.js`, which tests the functionality of our AngularJS routing
+- `main_spec.js`, which tests the functionality of the main route, controller, and view
+- `about_spec.js`, which tests the functionality of the about route, controller, and view
+
+
+All e2e tests are run with `npm run protractor`.
+
+##### Unit Tests
+
+ tests are provided for the following types of AngularJS modules:
+
+- `unit/controllers/main_spec.js`
+- `unit/controllers/about_spec.js`
+- `unit/directives/ngEdict_spec.js`
+- `unit/constants_spec.js`
+
+All unit tests are run with `npm run unit`. When running unit tests, code coverage is simultaneously calculated and output as an HTML file to the `/coverage` directory.
+
+---
+
+### Documentation
+
+The project is well documented using [gulp-ngDocs](https://github.com/nikhilmodak/gulp-ngdocs) task. 
+All documentation are run with `npm run dev`. You can reach the documentation via [http://localhost:8083](http://localhost:8083)
