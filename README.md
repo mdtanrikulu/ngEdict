@@ -7,6 +7,7 @@ An AngularJS module to create notifications.
 
 ### Getting up and running
 
+
 This project uses the latest versions of the following libraries:
 
 - [AngularJS](http://angularjs.org/)
@@ -15,6 +16,70 @@ This project uses the latest versions of the following libraries:
 - [Browserify](http://browserify.org/)
 
 Along with many Gulp libraries (these can be seen in either `package.json`, or at the top of each task in `/gulp/tasks/`).
+
+
+####Requirements
+- [ngAnimate](https://docs.angularjs.org/api/ngAnimate)
+- [ngSanitize](https://docs.angularjs.org/api/ngSanitize)
+- [Normalize.css]() (optional)
+
+```
+npm install ng-edict --save
+
+```
+After including ngEdict.min.js and ngEdict.css, inject the ng-edict provider.
+```js
+var app = angular.module('project', ['ngAnimate','ngSanitize','ngEdict']);
+
+```
+
+Put notification frame into the index.html just before view-div.
+```html
+<div class="notification-frame">
+    <div class="row">
+        <div class="column">
+            <ng-edict-panel/>
+        </div>
+    </div>
+</div>
+```
+
+####Usage
+
+```js
+app.controller('MainCtrl', ['$scope', 'ngEdictProvider',
+    function($scope, ngEdict) {
+        'use strict';
+//init your provider
+$scope.nf = ngEdict();
+
+$scope.triggerNotification = function(){
+//call pushNotification function to create notification
+	$scope.nf.pushNotification({
+        type: 'info',
+        title: null,
+        message: null,
+        timer: 5000
+    });
+}
+```
+
+####Config
+
+There's 4 types of notifications;
+
+- success
+- info
+- warning
+- error
+
+If you send <b>timer</b> property into the object, notification will dissapear after <b>x</b> second you sent with it.
+
+####Screen
+
+![Info](/screen/3.jpg?raw=true "Info notification")
+![Warning](/screen/4.jpg?raw=true "Warning notification")
+![Error](/screen/4.jpg?raw=true "Error notification")
 
 ---
 
