@@ -55,22 +55,15 @@ const karmaBaseConfig = {
 };
 
 const customLaunchers = {
-    chrome: {
-        base: 'SauceLabs',
-        browserName: 'chrome'
+    Chrome_travis_ci: {
+        base: 'Chrome',
+        flags: ['--no-sandbox']
     }
 };
 
 const ciAdditions = {
-    sauceLabs: {
-        testName: 'Karma Unit Tests',
-        startConnect: false,
-        build: process.env.TRAVIS_BUILD_NUMBER,
-        tunnelIdentifier: process.env.TRAVIS_JOB_NUMBER
-    },
-    browsers: Object.keys(customLaunchers),
-    customLaunchers: customLaunchers,
-    reporters: ['progress', 'coverage', 'saucelabs']
+    browsers: ['Chrome', 'ChromeCanary'],
+    customLaunchers: customLaunchers
 };
 
 module.exports = function(config) {

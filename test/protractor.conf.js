@@ -26,10 +26,6 @@ exports.config = {
 
     specs: [
         'e2e/**/*.js'
-    ],
-
-    sauceUser: process.env.SAUCE_USERNAME,
-
-    sauceKey: process.env.SAUCE_ACCESS_KEY
+    ]
 
 };
