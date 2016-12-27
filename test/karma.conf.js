@@ -62,7 +62,7 @@ const customLaunchers = {
 };
 
 const ciAdditions = {
-    browsers: ['Chrome', 'ChromeCanary'],
+    browsers: ['Chrome_travis_ci'],
     customLaunchers: customLaunchers
 };
 
