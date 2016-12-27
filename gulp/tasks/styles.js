@@ -49,7 +49,8 @@ gulp.task('styles', function() {
         .pipe(sass({
             sourceComments: !global.isProd,
             outputStyle: global.isProd ? 'compressed' : 'nested',
-            includePaths: config.styles.sassIncludePaths
+            includePaths: config.styles.sassIncludePaths,
+            errLogToConsole: true
         //,importer: npmModule
         }))
         .on('error', handleErrors)
