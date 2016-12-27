@@ -3,8 +3,9 @@
 describe('E2E: About', function() {
 
 beforeEach(function() {
-    browser.get('/#/about');
+    browser.get('/');
     browser.waitForAngular();
+    browser.get('/about');
 });
 
 it('should route correctly', function() {
